@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Navbar, Nav, NavDropdown, Jumbotron, Button } from 'react-bootstrap'
 import './App.css';
+import data from './data'
+import Shoespage from './shoespage'
 
 function App() {
+
+  const [shoes, setShoes] = useState(data)
+
   return (
     <div className="App">
       
@@ -34,27 +39,13 @@ function App() {
           <Button variant="primary">Learn more</Button>
         </p>
       </Jumbotron>
-
       <div className="container">
         <div className="row">
-            <div className="col-md-4">
-              <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%"/>
-              <h4>상품이름1</h4>
-              <p>상품설명and가격</p>
-            </div>
-            <div className="col-md-4">
-              <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="100%"/>
-              <h4>상품이름2</h4>
-              <p>상품설명and가격</p>
-            </div>
-            <div className="col-md-4">
-              <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="100%"/>
-              <h4>상품이름3</h4>
-              <p>상품설명and가격</p>
-            </div>
+          {shoes.map((shoe, i) => {
+              return <Shoespage shoesone={shoe} key={i} i={i}/>
+          })}        
         </div>
       </div>
-
     </div>
   );
 }
