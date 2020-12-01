@@ -17,8 +17,8 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link> <Link to="/">Home</Link> </Nav.Link>
+            <Nav.Link> <Link to="/detail">Detail</Link></Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -29,8 +29,10 @@ function App() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <Route path="/" exact component={Jumbocard}/>
-      <Route path="/detail" exact component={Detail} />
+      <Switch>
+        <Route path="/" exact component={Jumbocard}/>
+        <Route path="/detail" exact component={Detail} />
+      </Switch>
     </div>
   );
 }
