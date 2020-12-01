@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
-import { Navbar, Nav, NavDropdown, Jumbotron, Button } from 'react-bootstrap'
+import React from 'react';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import './App.css';
-import data from './data'
-import Shoespage from './shoespage'
+import { Link, Route, Switch } from 'react-router-dom'
+
+
+import Jumbocard from './layout/jumbocard'
+import Detail from './layout/detail'
 
 function App() {
-
-  const [shoes, setShoes] = useState(data)
 
   return (
     <div className="App">
@@ -28,24 +29,8 @@ function App() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-
-      <Jumbotron className="background">
-        <h1>50% Sale</h1>
-        <p>
-          This is a simple hero unit, a simple jumbotron-style component for calling
-          extra attention to featured content or information.
-        </p>
-        <p>
-          <Button variant="primary">Learn more</Button>
-        </p>
-      </Jumbotron>
-      <div className="container">
-        <div className="row">
-          {shoes.map((shoe, i) => {
-              return <Shoespage shoesone={shoe} key={i} i={i}/>
-          })}        
-        </div>
-      </div>
+      <Route path="/" exact component={Jumbocard}/>
+      <Route path="/detail" exact component={Detail} />
     </div>
   );
 }
