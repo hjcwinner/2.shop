@@ -1,12 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Jumbotron, Button } from 'react-bootstrap'
 import Shoespage from '../shoespage'
 
-import data from '../data'
 
-const Junbocard = (props) => {
-    
-    const [shoes, setShoes] = useState(data)
+const Junbocard = ({shoes}) => {
 
     return (
         <div>

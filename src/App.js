@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import './App.css';
 import { Link, Route, Switch } from 'react-router-dom'
 
-
 import Jumbocard from './layout/jumbocard'
 import Detail from './layout/detail'
+import data from './data'
 
 function App() {
+
+  const [shoes, setShoes] = useState(data)
 
   return (
     <div className="App">
@@ -30,8 +32,12 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
       <Switch>
-        <Route path="/" exact component={Jumbocard}/>
-        <Route path="/detail" exact component={Detail} />
+        <Route path="/" exact>
+          <Jumbocard shoes={shoes}/>
+        </Route>
+        <Route path="/detail/:id" exact>
+          <Detail shoes={shoes}/>
+        </Route>
       </Switch>
     </div>
   );
