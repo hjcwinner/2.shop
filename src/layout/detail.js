@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import './Detail.scss';
@@ -13,17 +13,30 @@ const Matext = styled.h4`
 
 const Detail = ({shoes}) => {
 
+    const [alter, setAlter] = useState(true)
+
     let {id} = useParams()
     let findid = shoes.find(shoe => shoe.id == id)
 
     let history = useHistory()
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setAlter(false)
+            return () => { clearTimeout(timer) }
+        }, 2000);
+    }, [alter])
 
     return (
         <div className="container">
             <Madetail className="red">
                 <Matext>Detail</Matext>
             </Madetail>
-            <div className="my-alert">재고가 얼마 남지 않았습니다</div>
+            {
+                alter
+                ? (<div className="my-alert">재고가 얼마 남지 않았습니다</div>)
+                : null
+             }
             <div className="row">
                 <div className="col-md-6">
                     <img src={`https://codingapple1.github.io/shop/shoes${findid.id+1}.jpg`} width="100%"/>
