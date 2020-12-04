@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Jumbotron, Button } from 'react-bootstrap'
 import Shoespage from '../shoespage'
+import axios from 'axios'
 
 
 const Junbocard = ({shoes}) => {
+
+    let [newshoes, setNewshoes] = useState(shoes)
 
     return (
         <div>
@@ -15,11 +18,20 @@ const Junbocard = ({shoes}) => {
             </Jumbotron>
             <div className="container">
                 <div className="row">
-                {shoes.map((shoe, i) => {
+                {newshoes.map((shoe, i) => {
                     return <Shoespage shoesone={shoe} key={i} i={i}/>
                 })}        
                 </div>
             </div>
+            <Button variant="primary" onClick={() => {
+                axios.get('https://codingapple1.github.io/shop/data2.json')
+                .then((result) => {
+                    setNewshoes([...newshoes, ...result.data])
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+            }}>더보기</Button>
         </div>
     );
 };
