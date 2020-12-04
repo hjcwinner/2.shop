@@ -1,17 +1,29 @@
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom'
+import styled from 'styled-components'
+import './Detail.scss';
+
+const Madetail = styled.div`
+    padding : 20px
+`;
+
+const Matext = styled.h4`
+    font-size : 25px;
+`;
 
 const Detail = ({shoes}) => {
 
     let {id} = useParams()
-    let findid = shoes.find(function(findgood){
-        return findgood.id == id
-    })
+    let findid = shoes.find(shoe => shoe.id == id)
 
     let history = useHistory()
 
     return (
         <div className="container">
+            <Madetail className="red">
+                <Matext>Detail</Matext>
+            </Madetail>
+            <div className="my-alert">재고가 얼마 남지 않았습니다</div>
             <div className="row">
                 <div className="col-md-6">
                     <img src={`https://codingapple1.github.io/shop/shoes${findid.id+1}.jpg`} width="100%"/>
