@@ -7,9 +7,12 @@ import Jumbocard from './layout/jumbocard'
 import Detail from './layout/detail'
 import data from './data'
 
+export let stockContext = React.createContext()
+
 function App() {
 
   const [shoes, setShoes] = useState(data)
+  let [stock, setStock] = useState([6,10,12])
 
   return (
     <div className="App">
@@ -33,7 +36,9 @@ function App() {
       </Navbar>
       <Switch>
         <Route path="/" exact>
-          <Jumbocard shoes={shoes}/>
+          <stockContext.Provider value={stock}>
+            <Jumbocard shoes={shoes}/>
+          </stockContext.Provider>
         </Route>
         <Route path="/detail/:id" exact>
           <Detail shoes={shoes}/>

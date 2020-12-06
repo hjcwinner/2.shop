@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Jumbotron, Button } from 'react-bootstrap'
-import Shoespage from '../shoespage'
+import Shoespage from '../Shoespage'
 import axios from 'axios'
 
 
@@ -24,13 +24,13 @@ const Junbocard = ({shoes}) => {
                 </div>
             </div>
             <Button variant="primary" onClick={() => {
-                axios.get('https://codingapple1.github.io/shop/data2.json')
-                .then((result) => {
-                    setNewshoes([...newshoes, ...result.data])
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
+                 axios.get('https://codingapple1.github.io/shop/data2.json')
+                    .then((result) => {
+                        setNewshoes([...newshoes, ...result.data])  
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
             }}>더보기</Button>
         </div>
     );
