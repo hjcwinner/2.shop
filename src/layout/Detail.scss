@@ -1,5 +1,13 @@
 $maincolor : #ff0000;
 
+.light-enter {
+    opacity : 0;
+}
+.light-enter-active {
+    opacity : 1;
+    transition: all 500ms;
+}
+
 .red {
     color : $maincolor;
 }
