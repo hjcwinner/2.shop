@@ -1,12 +1,14 @@
 import React, {useContext} from 'react';
+import { useHistory } from 'react-router-dom';
 import {stockContext} from './App'
 
 const Shoespage = ({shoesone, i}) => {
 
     let stock = useContext(stockContext)
+    let history = useHistory()
 
     return (
-        <div className="col-md-4">
+        <div className="col-md-4" onClick={ () => {history.push('/Cart')}}>
             <img src={`https://codingapple1.github.io/shop/shoes${i+1}.jpg`} width="100%"/>
             <h4>{shoesone.title}</h4>
             <p>{shoesone.content} & {shoesone.price}</p>

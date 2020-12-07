@@ -60,12 +60,12 @@ const Detail = ({shoes}) => {
                 <Nav.Item>
                     <Nav.Link eventKey="link-0" onClick={ () => {
                         setTab(0); setActab(false)
-                    }}>Active</Nav.Link>
+                    }}>상품설명</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link eventKey="link-1" onClick={ () => {
                         setTab(1); setActab(false)
-                    }}>Option 2</Nav.Link>
+                    }}>배송정보</Nav.Link>
                 </Nav.Item>
             </Nav>
             <CSSTransition in={actab} classNames="light" timeout={500}>
