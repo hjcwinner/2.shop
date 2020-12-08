@@ -23,9 +23,9 @@ const Cart = (props) => {
                             <td>{pro.name}</td>
                             <td>{pro.quan}</td>
                             <td><button onClick={() => { 
-                                    props.dispatch({ type : 'plus'})}}>+</button>
+                                    props.dispatch({ type : 'plus', payload : pro.id })}}>+</button>
                                 <button onClick={ () => {
-                                    props.dispatch( { type : 'minus'})}}>-</button></td>     
+                                    props.dispatch( { type : 'minus', payload : pro.id})}}>-</button></td>     
                         </tr>
                         )
                     })

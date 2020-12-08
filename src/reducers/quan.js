@@ -4,15 +4,37 @@ let basicState = [
 ]
 
 export default function(state = basicState, action) {
-    if(action.type === 'plus'){
+    if(action.type === 'productAdd'){
+
+        let findProduct = state.findIndex((good)=> { return good.id === action.payload.id})
+
+        if( findProduct >= 0 ){
+            let copy = [...state]
+            copy[findProduct].quan++
+            return copy
+        }
+        else{
+            let copy = [...state]
+            copy.push(action.payload)
+            return copy
+        }  
+    }
+    else if(action.type === 'plus'){
         let copy = [...state]
-        copy[0].quan++
+        copy[action.payload].quan++
         return copy
     }
     else if(action.type === 'minus'){
         let copy = [...state]
-        copy[0].quan--
-        return copy
+        copy[action.payload].quan--
+        let passcopy = copy[action.payload].quan
+        if(passcopy >= 0)
+            return copy
+        else
+        {
+            copy[action.payload].quan++
+            return copy
+        } 
     }
     else {
         return state

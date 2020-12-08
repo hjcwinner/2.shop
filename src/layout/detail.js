@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import './Detail.scss';
 import { Nav } from 'react-bootstrap'
 import { CSSTransition } from 'react-transition-group'
+import {connect} from 'react-redux'
+import basicState from '../reducers/quan'
 
 const Madetail = styled.div`
     padding : 20px
@@ -13,14 +15,14 @@ const Matext = styled.h4`
     font-size : 25px;
 `;
 
-const Detail = ({shoes}) => {
+const Detail = (props) => {
 
     const [alter, setAlter] = useState(true)
     let [tab, setTab] = useState(0)
     let [actab, setActab] = useState(false)
 
     let {id} = useParams()
-    let findid = shoes.find(shoe => shoe.id == id)
+    let findid = props.shoes.find(shoe => shoe.id == id)
 
     let history = useHistory()
 
@@ -49,7 +51,12 @@ const Detail = ({shoes}) => {
                     <h4 className="pt-5">{findid.title}</h4>
                     <p>{findid.content}</p>
                     <p>{findid.price}</p>
-                    <button className="btn btn-danger">주문하기</button>
+                    <button className="btn btn-danger"
+                        onClick={ () => {
+                            props.dispatch({type : 'productAdd', payload : {id:findid.id, name:findid.title, quan:1}});
+                            history.push('/cart')
+                        }}
+                    >주문하기</button>
                     <button className="btn btn-danger" onClick={ () => {
                         history.goBack()
                     }}>뒤로가기</button>
@@ -92,5 +99,10 @@ function Tabinfo({tab, setActab}){
     }
 }
 
+const product = state => ({
+    state : state
+})
 
-export default Detail;
+export default connect(
+    product
+)(Detail);
