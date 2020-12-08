@@ -5,12 +5,11 @@ let basicState = [
 
 export default function(state = basicState, action) {
     if(action.type === 'productAdd'){
-
-        let findProduct = state.findIndex((good)=> { return good.id === action.payload.id})
-
-        if( findProduct >= 0 ){
+        let found = state.findIndex((a)=> { return a.id === action.payload.id})
+        console.log(found)
+        if( found >= 0 ){
             let copy = [...state]
-            copy[findProduct].quan++
+            copy[found].quan++
             return copy
         }
         else{

@@ -5,7 +5,18 @@
 .background {
   background-image: url(/src/image/images.jpg);
   background-position: center;
-  color: red;
+  color: darkblue;
+}
+
+.background p {
+  color: black;
+  font-weight: 700;
+}
+
+.background p:nth-child(3){
+  font-size: 150%;
+  color :red;
+  font-weight: 700;
 }
 
 .App-logo {

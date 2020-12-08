@@ -22,7 +22,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">SHoeShop</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">SHoeShop</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">

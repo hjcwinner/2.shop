@@ -5,7 +5,6 @@ import './Detail.scss';
 import { Nav } from 'react-bootstrap'
 import { CSSTransition } from 'react-transition-group'
 import {connect} from 'react-redux'
-import basicState from '../reducers/quan'
 
 const Madetail = styled.div`
     padding : 20px
@@ -45,7 +44,7 @@ const Detail = (props) => {
              }
             <div className="row">
                 <div className="col-md-6">
-                    <img src={`https://codingapple1.github.io/shop/shoes${findid.id+1}.jpg`} width="100%"/>
+                    <img src={`https://codingapple1.github.io/shop/shoes${findid.id-1}.jpg`} width="100%"/>
                 </div>
                 <div className="col-md-6 mt-4">
                     <h4 className="pt-5">{findid.title}</h4>

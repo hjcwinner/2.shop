@@ -12,9 +12,8 @@ const Junbocard = ({shoes}) => {
         <div>
             <Jumbotron className="background">
                 <h1>50% Sale</h1>
-                <p>This is a simple hero unit, a simple jumbotron-style component for calling
-                extra attention to featured content or information.</p>
-                <p><Button variant="primary">Learn more</Button></p>
+                <p>These are the safest and longest-lasting shoes in the world. It boasts the best features..</p>
+                <p>Highly recommend to buy now</p>
             </Jumbotron>
             <div className="container">
                 <div className="row">
