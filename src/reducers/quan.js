@@ -1,6 +1,6 @@
 let basicState = [
-    { id : 0, name : '아디다스', quan : 2 },
-    { id : 1, name : '나이키', quan : 1}
+    // { id : 0, name : '아디다스', quan : 2 },
+    // { id : 1, name : '나이키', quan : 1}
 ]
 
 export default function(state = basicState, action) {
